@@ -35,7 +35,7 @@ public class UIBar extends BasicUIObject{
 		
 		double temp = (value / (max-min)) ;
 		temp = max/100 - temp;
-		canvas.setColor(Color.green);
+		wcanvas.setColor(Color.green);
 		canvas.fillRect(1,1,w-1,h-1);
 		
 		
