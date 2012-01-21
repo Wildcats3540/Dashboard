@@ -20,7 +20,7 @@ public class Dashboard {
 	JPanel cameraT = new JPanel();
 	
 	private static final String ip = "localhost";
-	private static final String port = "7777";
+	private static final String port = "777";
 	
 	public static double data = 0;
 	public static void main(String args[]){
