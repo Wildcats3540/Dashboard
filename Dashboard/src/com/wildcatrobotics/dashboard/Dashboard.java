@@ -22,7 +22,7 @@ public class Dashboard {
 	private static final String ip = "localhost";
 	private static final String port = "7777";
 	
-	public static double data = 0;
+	public static double data = 1;
 	public static void main(String args[]){
 		new Dashboard().start();
 	}
