@@ -28,7 +28,8 @@ public class Dashboard {
 	}
 	
 	public void start(){
-		f.setSize(1024, 700);
+		
+		f.setSize(1024, 710);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		f.add(p);
