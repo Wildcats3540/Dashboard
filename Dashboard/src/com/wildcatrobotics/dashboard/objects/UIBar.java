@@ -39,6 +39,8 @@ public class UIBar extends BasicUIObject{
 		canvas.fillRect(1,1,w-1,h-1);
 		
 		
+		canvas.setColor(Color.black);
+		
 		canvas.clearRect(1, 1, w-1, (int)(h*temp) );
 		canvas.setColor(Color.black);
 		canvas.drawRect(0, 0, w,h);
