@@ -8,7 +8,9 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.wildcatrobotics.dashboard.objects.UI2DAxisPosition;
 import com.wildcatrobotics.dashboard.objects.UIBar;
+import com.wildcatrobotics.dashboard.objects.UIColorChanger;
 import com.wildcatrobotics.dashboard.objects.UIGraph;
 import com.wildcatrobotics.dashboard.objects.UISpeedometer;
 import com.wildcatrobotics.dashboard.sockettest.Ping;
@@ -22,7 +24,7 @@ public class Dashboard {
 	private static final String ip = "localhost";
 	private static final String port = "777";
 	
-	public static double data = 1;
+	public static double data = 0;
 	public static void main(String args[]){
 		new Dashboard().start();
 	}
@@ -42,11 +44,15 @@ public class Dashboard {
 		
 		UIBar bar = new UIBar(725, 60 ,25, 150);
 		UIBar bar2 = new UIBar(755, 60 ,25, 150);
+		UIColorChanger c = new UIColorChanger(600, 400, 100, 100);
+		UI2DAxisPosition d = new UI2DAxisPosition(800, 500, 100, 100);
 
 		UISpeedometer sp = new UISpeedometer(400, 50, 150);
 		UIGraph gp = new UIGraph(100,400,300,150);
 		p.add(bar);
 		p.add(bar2);
+		p.add(c);
+		p.add(d);
 		p.add(sp);
 		p.add(gp);
 		sp.setValue(25);
@@ -71,8 +77,9 @@ public class Dashboard {
 		
 		
 		while(true){
-			try{Thread.sleep(10);}catch(Exception e){}
-			bar.setValue(((data + 1)/2)*100);
+			try{Thread.sleep(100);}catch(Exception e){}
+			c.setValue(new Random().nextInt(2));
+			//bar.setValue(((data + 1)/2)*100);
 			//bar.setValue(data);
 		}
 		
