@@ -25,15 +25,15 @@ public class DataTypes{
 	//PWM
 	//RESERVED: 10-19
 	public static final int DATA_PWM_1 =  10;
-	public static final int data_PWM_2 =  11;
-	public static final int data_PWM_3 =  12;
-	public static final int data_PWM_4 =  13;
-	public static final int data_PWM_5 =  14;
-	public static final int data_PWM_6 =  15;
-	public static final int data_PWM_7 =  16;
-	public static final int data_PWM_8 =  17;
-	public static final int data_PWM_9 =  18;
-	public static final int data_PWM_10 = 19;
+	public static final int DATA_PWM_2 =  11;
+	public static final int DATA_PWM_3 =  12;
+	public static final int DATA_PWM_4 =  13;
+	public static final int DATA_PWM_5 =  14;
+	public static final int DATA_PWM_6 =  15;
+	public static final int DATA_PWM_7 =  16;
+	public static final int DATA_PWM_8 =  17;
+	public static final int DATA_PWM_9 =  18;
+	public static final int DATA_PWM_10 = 19;
 	
 	
 	//DIGITAL INPUTS
