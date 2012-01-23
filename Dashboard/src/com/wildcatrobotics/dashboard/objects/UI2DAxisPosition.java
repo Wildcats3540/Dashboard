@@ -5,15 +5,16 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class UI2DAxisPosition extends BasicUIObject{ 
-	
+	double AxisX = 0;
+	double AxisY = 0;
 	public UI2DAxisPosition(int x, int y, int w, int h) {
 		super(x, y, w, h);
-		// TODO Auto-generated constructor stub
 	}
 	
-	public void setValue(double d){
-		value = d;
-		draw(this.getGraphics());	
+	public void setValue(double AxisX, double AxisY){
+		this.AxisX = AxisX;
+		this.AxisY = AxisY;
+		draw(this.getGraphics());
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -22,5 +23,8 @@ public class UI2DAxisPosition extends BasicUIObject{
 		super.paintComponent(g);
 		
 		canvas.drawRect(0, 0, w,h);
+		//canvas.drawRect(((w/2)-5), ((h/2)-5), 10, 10);
+		canvas.drawLine(((w/2)-5), (h/2), ((w/2)+5), (h/2));
+		canvas.drawLine((w/2), ((h/2)-5), (w/2), ((h/2)+5));
 	}
 }
