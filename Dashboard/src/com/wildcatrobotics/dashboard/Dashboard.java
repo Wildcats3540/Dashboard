@@ -44,8 +44,8 @@ public class Dashboard {
 		
 		UIBar bar = new UIBar(725, 60 ,25, 150);
 		UIBar bar2 = new UIBar(755, 60 ,25, 150);
-		UIColorChanger c = new UIColorChanger(600, 400, 100, 100);
-		UI2DAxisPosition d = new UI2DAxisPosition(800, 500, 100, 100);
+		UIColorChanger c = new UIColorChanger(400, 225, 100, 100);
+		UI2DAxisPosition d = new UI2DAxisPosition(600, 225, 100, 100);
 
 		UISpeedometer sp = new UISpeedometer(400, 50, 150);
 		UIGraph gp = new UIGraph(100,400,300,150);
@@ -78,7 +78,7 @@ public class Dashboard {
 		
 		while(true){
 			try{Thread.sleep(100);}catch(Exception e){}
-			c.setValue(new Random().nextInt(2));
+			//c.setValue(new Random().nextInt(2));
 			//bar.setValue(((data + 1)/2)*100);
 			//bar.setValue(data);
 		}
