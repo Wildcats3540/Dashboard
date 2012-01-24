@@ -5,11 +5,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class UI2DAxisPosition extends BasicUIObject{ 
-	double AxisX = 0;
-	double AxisY = 0;
-	double XMax = 0;
+	double AxisX = 50;
+	double AxisY = 50;
+	double XMax = 100;
 	double XMin = 0;
-	double YMax = 0;
+	double YMax = 100;
 	double YMin = 0;
 	
 	public UI2DAxisPosition(int x, int y, int w, int h) {
@@ -39,13 +39,13 @@ public class UI2DAxisPosition extends BasicUIObject{
 		
 		canvas.drawRect(0, 0, w,h);
 		//canvas.drawRect(((w/2)-5), ((h/2)-5), 10, 10);
-		canvas.drawLine(((w/2)-5), (h/2), ((w/2)+5), (h/2));
-		canvas.drawLine((w/2), ((h/2)-5), (w/2), ((h/2)+5));
+		//canvas.drawLine(((w/2)-5), (h/2), ((w/2)+5), (h/2));
+		//canvas.drawLine((w/2), ((h/2)-5), (w/2), ((h/2)+5));
 		
 		double xPercent = AxisX / (getXMax()- getXMin());
-		int xLoc = w * (int)xPercent;
+		int xLoc = (int)(w * xPercent);
 		double yPercent = AxisY / (getYMax()- getYMin());
-		int yLoc = h * (int)yPercent;
+		int yLoc = (int)(h * yPercent);
 		
 		canvas.drawLine((xLoc-5), yLoc, (xLoc+5), yLoc);
 		canvas.drawLine(xLoc, (yLoc-5), xLoc, (yLoc+5));
