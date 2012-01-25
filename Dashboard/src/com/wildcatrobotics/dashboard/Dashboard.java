@@ -79,8 +79,8 @@ public class Dashboard {
 		
 		
 		while(true){
-			try{Thread.sleep(100);}catch(Exception e){}
-			//c.setValue(new Random().nextInt(2));
+			try{Thread.sleep(1000);}catch(Exception e){}
+			d.setValue(new Random().nextDouble()*100,(new Random().nextDouble()*100));
 			//bar.setValue(((data + 1)/2)*100);
 			//bar.setValue(data);
 		}
