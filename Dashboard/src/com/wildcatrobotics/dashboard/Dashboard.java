@@ -8,12 +8,14 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.wildcatrobotics.dashboard.net.DataTypes;
 import com.wildcatrobotics.dashboard.objects.UI2DAxisPosition;
 import com.wildcatrobotics.dashboard.objects.UIBar;
 import com.wildcatrobotics.dashboard.objects.UIColorChanger;
 import com.wildcatrobotics.dashboard.objects.UIGraph;
 import com.wildcatrobotics.dashboard.objects.UISpeedometer;
 import com.wildcatrobotics.dashboard.sockettest.Ping;
+import com.wildcatrobotics.dashboard.util.NetworkConversionHelper;
 
 public class Dashboard {
 
@@ -63,15 +65,15 @@ public class Dashboard {
 
 		/*bar.setMin(-1);
 		bar.setMax(1);*/
-		Hashtable<String, Object> ht = new Hashtable<String, Object>();
+		Hashtable<Integer, Object> ht = new Hashtable<Integer, Object>();
 		
-		ht.put("MAIN", 4);
-		ht.put("NOOB", "SDFSDF");
+		ht.put(DataTypes.DATA_DIGITAL_2, 4);
+		ht.put(DataTypes.DATA_PWM_1, 3);
 		
-		System.out.println(ht.toString());
+		Hashtable<Integer, Object> a = new NetworkConversionHelper().RawToHash(ht.toString());
 		
-		Random rand = new Random();
-		int a = 0;
+		System.out.println(a.get(DataTypes.DATA_DIGITAL_2));
+		
 		
 		new Ping().start();
 		
