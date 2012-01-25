@@ -8,12 +8,30 @@ public class DataTypes{
 	
 	public static  Hashtable<Integer, int[]> ranges = new Hashtable<Integer, int[]>();
 	
-	//RANGES
-	public static final int[] RANGE_ROBOT   = new int[] {1,3};
-	public static final int[] RANGE_PWM     = new int[] {10,19};
-	public static final int[] RANGE_DIGITAL = new int[] {20,33};
-	public static final int[] RANGE_RELAY   = new int[] {40,47};
+	
+	//TYPES
+	public static final int TYPE_MIXED  = 0;
+	public static final int TYPE_STRING = 1;
+	public static final int TYPE_INT    = 2;
+	public static final int TYPE_DOUBLE = 3;
+	public static final int TYPE_UNKNOWN = 100;
+	
+	
+	//META
+	public static final int[] META_ROBOT   = new int[] {1,3, TYPE_MIXED};
+	public static final int[] META_PWM     = new int[] {10,19, TYPE_DOUBLE};
+	public static final int[] META_DIGITAL = new int[] {20,33, TYPE_DOUBLE};
+	public static final int[] META_RELAY   = new int[] {40,47, TYPE_DOUBLE};
 
+	public static final int[][] META_RANGE = 
+		{	
+			META_ROBOT,
+			META_PWM,
+			META_DIGITAL,
+			META_RELAY
+		};
+	
+	
 	
 
 	//ROBOT VALUES

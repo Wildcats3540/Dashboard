@@ -7,14 +7,6 @@ import java.net.Socket;
 
 public class Server {
 	public static void main(String args[]){
-
-		
-		
-		
-		
-		
-		
-		
 		try {
 			ServerSocket srvr = new ServerSocket(7777);
 			Socket skt = srvr.accept();
