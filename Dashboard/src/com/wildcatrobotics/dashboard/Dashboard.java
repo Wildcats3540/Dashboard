@@ -44,6 +44,8 @@ public class Dashboard {
 			cameraT.setBounds(25, 25,350, 300);
 		}
 		
+		
+		
 		UIBar bar = new UIBar(725, 60 ,25, 150);
 		UIBar bar2 = new UIBar(755, 60 ,25, 150);
 		UIColorChanger c = new UIColorChanger(400, 225, 100, 100);

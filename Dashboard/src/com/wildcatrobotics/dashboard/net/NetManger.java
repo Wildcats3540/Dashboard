@@ -6,4 +6,6 @@ public class NetManger extends Thread {
 	
 	
 	
+	
+	
 }

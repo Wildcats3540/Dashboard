@@ -78,6 +78,7 @@ public class NetworkConversionHelper {
 			}
 		}
 		return DataTypes.TYPE_UNKNOWN;
+		
 
 	}
 	

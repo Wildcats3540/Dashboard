@@ -40,6 +40,7 @@ public class DataTypes{
 	public static final int DATA_ROBOT_MODE = 2;
 	public static final int DATA_ROBOT_VOLTS = 3;
 	
+	
 	//PWM
 	//RESERVED: 10-19
 	public static final int DATA_PWM_1 =  10;
