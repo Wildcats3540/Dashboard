@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import com.wildcatrobotics.dashboard.net.DataManager;
+import com.wildcatrobotics.dashboard.net.DataTypes;
+
 public class UI2DAxisPosition extends BasicUIObject{ 
 	double AxisX = 50;
 	double AxisY = 50;
@@ -11,6 +14,8 @@ public class UI2DAxisPosition extends BasicUIObject{
 	double XMin = 0;
 	double YMax = 100;
 	double YMin = 0;
+	private int u1 = DataTypes.NULL;
+	private int u2 = DataTypes.NULL;
 	
 	public UI2DAxisPosition(int x, int y, int w, int h) {
 		super(x, y, w, h);
@@ -21,6 +26,13 @@ public class UI2DAxisPosition extends BasicUIObject{
 		this.AxisY = AxisY;
 		draw(this.getGraphics());
 	}
+	
+	public BasicUIObject setUpdater(int a,int a2){
+		u1 = a;
+		u2 = a2;
+		return this;
+	}
+	
 
 	public double getXMax() {return XMax;}
 	public double getXMin() {return XMin;}
@@ -49,5 +61,9 @@ public class UI2DAxisPosition extends BasicUIObject{
 		
 		canvas.drawLine((xLoc-5), yLoc, (xLoc+5), yLoc);
 		canvas.drawLine(xLoc, (yLoc-5), xLoc, (yLoc+5));
+	}
+	
+	public void update(){
+		setValue(DataManager.getNumber(u1),DataManager.getNumber(u2));
 	}
 }

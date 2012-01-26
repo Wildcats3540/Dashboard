@@ -16,6 +16,10 @@ public class UIBar extends BasicUIObject{
 		draw(this.getGraphics());
 		
 	}
+	public BasicUIObject setUpdater(int a){
+		this.a = a;
+		return this;
+	}
 	
 	public void setValue(double d){
 		value = d;

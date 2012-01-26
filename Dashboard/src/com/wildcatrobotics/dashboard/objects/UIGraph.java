@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import com.wildcatrobotics.dashboard.net.DataTypes;
+
 public class UIGraph extends BasicUIObject{
 	
 	private int dataCount;
@@ -20,6 +22,9 @@ public class UIGraph extends BasicUIObject{
 		this.dataCount = dataCount;
 		
 	}
+	
+
+	
 	public void setup(){
 		draw(this.getGraphics());
 
@@ -75,4 +80,6 @@ public class UIGraph extends BasicUIObject{
 		return (int)temp;
 		
 	}
+	
+	
 }

@@ -4,10 +4,16 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import com.wildcatrobotics.dashboard.functions.UpdateManager;
+import com.wildcatrobotics.dashboard.net.DataManager;
+import com.wildcatrobotics.dashboard.net.DataTypes;
+
 public class BasicUIObject extends JPanel implements UIObject  {
 
 
 	double value = 0,min=0,max=100;
+	
+	int a = DataTypes.NULL;
 	
 	int x,y,w,h;
 	
@@ -17,14 +23,18 @@ public class BasicUIObject extends JPanel implements UIObject  {
 		this.h = h;
 		this.w = w;
 		this.setBounds(x, y, w+1, h+1);
-
 		setup();
-	}
-	
-	public void setup(){
 		
 	}
 	
+	public void setup(){
+		UpdateManager.add(this);
+	}
+	
+	public BasicUIObject setUpdater(int a){
+		this.a = a;
+		return this;
+	}
 
 	public void setValue(double d) {
 		value = d;
@@ -64,5 +74,11 @@ public class BasicUIObject extends JPanel implements UIObject  {
 		return min;
 	}
 
+	
+	public void update(){
+		if(a!=DataTypes.NULL)
+		 setValue(DataManager.getNumber(a));
+	}
+	
 	
 }

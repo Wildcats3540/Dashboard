@@ -18,4 +18,8 @@ public interface UIObject {
 	public double getMin();
 	
 	public void draw(Graphics g);
+	
+	public void update();
+	
+	
 }

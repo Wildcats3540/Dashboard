@@ -11,6 +11,11 @@ public class UIColorChanger extends BasicUIObject{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public BasicUIObject setUpdater(int a){
+		this.a = a;
+		return this;
+	}
+	
 	public void paintComponent(Graphics g) {
 		Graphics2D canvas = (Graphics2D)g;
 		canvas.setColor(Color.RED);

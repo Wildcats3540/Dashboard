@@ -5,9 +5,10 @@ import java.io.DataOutputStream;
 import java.net.Socket;
 
 import com.wildcatrobotics.dashboard.Dashboard;
+import com.wildcatrobotics.dashboard.functions.UpdateManager;
 import com.wildcatrobotics.dashboard.util.NetworkConversionHelper;
 
-public class NetManger extends Thread {
+public class NetManager extends Thread {
 
 
 	
@@ -27,11 +28,12 @@ public class NetManger extends Thread {
 		try {
 			Socket skt = new Socket("10.35.40.2", 7777);
 			DataInputStream in = new DataInputStream(skt.getInputStream());
-
+			setConnected(true);
 				while(skt.isConnected()){
 					String s = in.readUTF();
 					DataManager.updateFull(netConvHelp.RawToHash(s));
 				}
+			setConnected(false);
 			in.close();
 			skt.close();
 			
@@ -45,6 +47,17 @@ public class NetManger extends Thread {
 	//			DataOutputStream out = new DataOutputStream(skt.getOutputStream());
 
 	
+	private static void setConnected(Boolean b){
+		connected = b;
+		if(connected){
+			runConnectionTask();
+		}
+		else
+		{
+			//runDCTask();
+		}
+	}
+	
 	
 	public static boolean isConnected(){
 		return connected;
@@ -52,6 +65,10 @@ public class NetManger extends Thread {
 	
 	public static int getStatus(){
 		return status;
+	}
+	
+	public static void runConnectionTask(){
+		UpdateManager.Init();
 	}
 	
 }

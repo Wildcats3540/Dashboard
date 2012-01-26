@@ -46,8 +46,8 @@ public class Dashboard {
 		
 		
 		
-		UIBar bar = new UIBar(725, 60 ,25, 150);
-		UIBar bar2 = new UIBar(755, 60 ,25, 150);
+		UIBar bar = (UIBar) new UIBar(725, 60 ,25, 150).setUpdater(DataTypes.DATA_DIGITAL_1);
+		UIBar bar2 = new UIBar(755, 60 ,25, 150).setUpdater(a);
 		UIColorChanger c = new UIColorChanger(400, 225, 100, 100);
 		UI2DAxisPosition d = new UI2DAxisPosition(600, 225, 100, 100);
 
