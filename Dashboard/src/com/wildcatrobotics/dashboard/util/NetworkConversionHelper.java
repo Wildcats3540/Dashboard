@@ -73,7 +73,7 @@ public class NetworkConversionHelper {
 	
 	public int getType(int i){
 		for(int a = 0;DataTypes.META_RANGE.length>a;a++){
-			if(DataTypes.META_RANGE[a][0]<i && DataTypes.META_RANGE[a][1]>1){
+			if(DataTypes.META_RANGE[a][0]<i && DataTypes.META_RANGE[a][1]>i){
 				return DataTypes.META_RANGE[a][2];
 			}
 		}

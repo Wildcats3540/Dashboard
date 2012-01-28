@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import com.wildcatrobotics.dashboard.net.DataManager;
 import com.wildcatrobotics.dashboard.net.DataTypes;
 
 public class UIGraph extends BasicUIObject{
@@ -62,7 +63,6 @@ public class UIGraph extends BasicUIObject{
 			final int inc = w / dataCount;
 			
 			for(int a = 0; a<data.size()-1;a++){
-				//System.out.println("DRAWING");
 				canvas.drawLine(index, getGraphY(data.get(a)), index+inc, getGraphY(data.get(a+1)) );
 				index += inc;
 			}
@@ -72,14 +72,23 @@ public class UIGraph extends BasicUIObject{
 	
 	public int getGraphY(Double y){
 		double temp = (y.doubleValue()) / (getMax()-getMin());
-		//System.out.println("O:"+temp);
 
 		temp = h*temp;
 		temp = h - temp;
-		//System.out.println(temp);
 		return (int)temp;
 		
 	}
+	
+	
+	public void update(){
+	//	if(a!=DataTypes.NULL){
+			double b = DataManager.getNumber(a);
+			addData(b);
+	 //System.out.println(b);
+		//}
+		
+	}
+	
 	
 	
 }

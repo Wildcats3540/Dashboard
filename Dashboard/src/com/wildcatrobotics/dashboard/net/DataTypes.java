@@ -24,14 +24,15 @@ public class DataTypes{
 	public static final int[] META_PWM      = new int[] {10,19, TYPE_DOUBLE};
 	public static final int[] META_DIGITAL  = new int[] {20,33, TYPE_DOUBLE};
 	public static final int[] META_RELAY    = new int[] {40,47, TYPE_DOUBLE};
-	public static final int[] META_JOYSTICK = new int[] {100,200,TYPE_DOUBLE};
+	public static final int[] META_JOYSTICK = new int[] {100,300,TYPE_DOUBLE};
 
 	public static final int[][] META_RANGE = 
 		{	
 			META_ROBOT,
 			META_PWM,
 			META_DIGITAL,
-			META_RELAY
+			META_RELAY,
+			META_JOYSTICK
 		};
 	
 	

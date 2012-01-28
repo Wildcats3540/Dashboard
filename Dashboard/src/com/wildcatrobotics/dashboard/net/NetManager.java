@@ -26,12 +26,16 @@ public class NetManager extends Thread {
 	
 	public void run(){
 		try {
-			Socket skt = new Socket("10.35.40.2", 7777);
+			Socket skt = new Socket(Dashboard.ip, Dashboard.port);
+
 			DataInputStream in = new DataInputStream(skt.getInputStream());
 			setConnected(true);
+			System.out.println("Connected");
 				while(skt.isConnected()){
 					String s = in.readUTF();
+					//System.out.println(s);
 					DataManager.updateFull(netConvHelp.RawToHash(s));
+					UpdateManager.updateFull();
 				}
 			setConnected(false);
 			in.close();
@@ -68,7 +72,6 @@ public class NetManager extends Thread {
 	}
 	
 	public static void runConnectionTask(){
-		UpdateManager.Init();
 	}
 	
 }

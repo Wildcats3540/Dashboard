@@ -8,12 +8,12 @@ import com.wildcatrobotics.dashboard.net.DataManager;
 import com.wildcatrobotics.dashboard.net.DataTypes;
 
 public class UI2DAxisPosition extends BasicUIObject{ 
-	double AxisX = 50;
-	double AxisY = 50;
-	double XMax = 100;
-	double XMin = 0;
-	double YMax = 100;
-	double YMin = 0;
+	double AxisX = 0;
+	double AxisY = 0;
+	double XMax = 1;
+	double XMin = -1;
+	double YMax = 1;
+	double YMin = -1;
 	private int u1 = DataTypes.NULL;
 	private int u2 = DataTypes.NULL;
 	

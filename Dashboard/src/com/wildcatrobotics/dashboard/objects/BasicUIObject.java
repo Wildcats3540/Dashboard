@@ -11,7 +11,7 @@ import com.wildcatrobotics.dashboard.net.DataTypes;
 public class BasicUIObject extends JPanel implements UIObject  {
 
 
-	double value = 0,min=0,max=100;
+	double value = 0,min=-1,max=1;
 	
 	int a = DataTypes.NULL;
 	
@@ -31,8 +31,10 @@ public class BasicUIObject extends JPanel implements UIObject  {
 		UpdateManager.add(this);
 	}
 	
-	public BasicUIObject setUpdater(int a){
-		this.a = a;
+	public BasicUIObject setUpdater(int s){
+		this.a = s;
+		UpdateManager.add(this);
+		//System.out.println("SET TOADSFADSFSADFADSF" + a);
 		return this;
 	}
 
@@ -76,8 +78,12 @@ public class BasicUIObject extends JPanel implements UIObject  {
 
 	
 	public void update(){
-		if(a!=DataTypes.NULL)
-		 setValue(DataManager.getNumber(a));
+	//	if(a!=DataTypes.NULL){
+			double b = DataManager.getNumber(a);
+			setValue(b);
+	 //System.out.println(b);
+		//}
+		
 	}
 	
 	

@@ -22,8 +22,14 @@ public class DataManager {
 	}
 	
 	public static synchronized double getNumber(int i){
+		//System.out.println(i);
 		int type = h.getType(i);
-		return ( type  == DataTypes.TYPE_DOUBLE || type == DataTypes.TYPE_INT)? Double.parseDouble(DataManager.get(i).toString()) : null;
+		//System.out.println(type);
+		/*if(type  == DataTypes.TYPE_DOUBLE || type == DataTypes.TYPE_INT){
+			System.out.println("Asd");
+		}*/
+			return Double.parseDouble(DataManager.get(i).toString());
+		//return 0;
 	}
 	
 }

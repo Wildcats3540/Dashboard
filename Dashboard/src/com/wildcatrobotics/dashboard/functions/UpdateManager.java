@@ -18,7 +18,7 @@ public class UpdateManager{
 	}
 	
 	
-	public static synchronized  void update(int index){
+	public static synchronized  void updateFull(){
 		for(UIObject o: objects){
 			o.update();
 		}

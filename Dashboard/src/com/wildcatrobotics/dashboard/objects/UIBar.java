@@ -16,11 +16,7 @@ public class UIBar extends BasicUIObject{
 		draw(this.getGraphics());
 		
 	}
-	public BasicUIObject setUpdater(int a){
-		this.a = a;
-		return this;
-	}
-	
+
 	public void setValue(double d){
 		value = d;
 		draw(this.getGraphics());
@@ -38,7 +34,7 @@ public class UIBar extends BasicUIObject{
 		
 		
 		double temp = (value / (max-min));
-		temp = max/100 - temp;
+		//temp = max/100 - temp;
 		canvas.setColor(Color.green);
 		canvas.fillRect(1,1,w-1,h-1);
 		
