@@ -1,5 +1,6 @@
 package com.wildcatrobotics.dashboard.objects;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
@@ -16,6 +17,8 @@ public class BasicUIObject extends JPanel implements UIObject  {
 	int a = DataTypes.NULL;
 	
 	int x,y,w,h;
+	
+	Color mainColor = Color.black, secondaryColor = Color.black;
 	
 	public BasicUIObject(int x, int y, int w, int h){
 		this.x = x;
@@ -48,6 +51,17 @@ public class BasicUIObject extends JPanel implements UIObject  {
 	public double getValue() {
 		return value;
 	}
+	
+	public BasicUIObject setMainColor(Color c){
+		mainColor = c;
+		return this;
+	}
+	
+	public BasicUIObject setSecondColor(Color c){
+		secondaryColor = c;
+		return this;
+	}
+	
 
 	@Override
 	public void draw(Graphics g) {

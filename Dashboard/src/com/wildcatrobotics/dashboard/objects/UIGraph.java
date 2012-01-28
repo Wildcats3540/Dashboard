@@ -71,11 +71,10 @@ public class UIGraph extends BasicUIObject{
 	}
 	
 	public int getGraphY(Double y){
-		double temp = (y.doubleValue()) / (getMax()-getMin());
-
-		temp = h*temp;
-		temp = h - temp;
-		return (int)temp;
+		double temp = (y.doubleValue() +(max-min)/2);
+		temp = temp/(max-min);
+		temp = h * temp;
+		return ((int) (temp));
 		
 	}
 	

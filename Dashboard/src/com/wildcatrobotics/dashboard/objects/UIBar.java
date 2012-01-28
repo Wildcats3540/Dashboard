@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 public class UIBar extends BasicUIObject{
 
 	
+	Color mainColor = Color.green;
+	
 	public UIBar(int x, int y, int w, int h){
 		super(x,y,w,h);
 		
@@ -16,7 +18,10 @@ public class UIBar extends BasicUIObject{
 		draw(this.getGraphics());
 		
 	}
-
+	public BasicUIObject setMainColor(Color c){
+		mainColor = c;
+		return this;
+	}
 	public void setValue(double d){
 		value = d;
 		draw(this.getGraphics());
@@ -31,18 +36,14 @@ public class UIBar extends BasicUIObject{
 		canvas.setColor(Color.BLACK);
 		super.paintComponent(g);
 		
+
+		double temp = ((-value)+((max-min)/2)/(max-min));
+		temp = (h *temp  );
 		
-		
-		double temp = (value / (max-min));
-		//temp = max/100 - temp;
-		canvas.setColor(Color.green);
-		canvas.fillRect(1,1,w-1,h-1);
-		
-		
-		canvas.setColor(Color.black);
-		
-		canvas.clearRect(1, 1, w-1, (int)(h*temp) );
-		canvas.setColor(Color.black);
+		canvas.setColor(mainColor);
+		canvas.fillRect(0,0,w,h);
+		canvas.setColor(secondaryColor);
+		canvas.clearRect(1, 1, w-1, (int) (temp));
 		canvas.drawRect(0, 0, w,h);
 
 		
