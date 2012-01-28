@@ -79,7 +79,7 @@ private int z = 0;
 		accelly.setMax(4);
 	    accelly.setMin(-4);
 		
-		
+		   
 		f.add(throttle2);
 		f.add(throttle1);
 		f.add(speed2);
