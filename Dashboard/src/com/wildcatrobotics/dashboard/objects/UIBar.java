@@ -14,10 +14,6 @@ public class UIBar extends BasicUIObject{
 		
 		
 	}
-	public void setup(){
-		draw(this.getGraphics());
-		
-	}
 	public BasicUIObject setMainColor(Color c){
 		mainColor = c;
 		return this;
@@ -36,9 +32,10 @@ public class UIBar extends BasicUIObject{
 		canvas.setColor(Color.BLACK);
 		super.paintComponent(g);
 		
-
-		double temp = ((-value)+((max-min)/2)/(max-min));
-		temp = (h *temp  );
+		double df0 = 0-min;
+		//double temp = ((-value)+((max-min)/2)/(max-min));
+		double temp = (value+df0) / ((max+df0)-(min+df0));
+		temp =h- (h *temp  );
 		
 		canvas.setColor(mainColor);
 		canvas.fillRect(0,0,w,h);

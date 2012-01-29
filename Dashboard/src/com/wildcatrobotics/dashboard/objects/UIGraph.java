@@ -25,10 +25,7 @@ public class UIGraph extends BasicUIObject{
 	}
 	
 
-	
 	public void setup(){
-		draw(this.getGraphics());
-
 	}
 	public void addData(double d){
 		if(data.size()>=dataCount){

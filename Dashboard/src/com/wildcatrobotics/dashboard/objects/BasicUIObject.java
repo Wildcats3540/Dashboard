@@ -26,12 +26,16 @@ public class BasicUIObject extends JPanel implements UIObject  {
 		this.h = h;
 		this.w = w;
 		this.setBounds(x, y, w+1, h+1);
+
 		setup();
 		
 	}
 	
 	public void setup(){
-		UpdateManager.add(this);
+		//UpdateManager.add(this);
+		//try{Thread.sleep(1000);}catch(Exception e){}
+		new Fade().start();
+
 	}
 	
 	public BasicUIObject setUpdater(int s){
@@ -100,5 +104,16 @@ public class BasicUIObject extends JPanel implements UIObject  {
 		
 	}
 	
+	class Fade extends Thread{
+		public void run(){
+			double inc = (max-min)/100;
+			double b = 1.7;
+			for(double a = max; a>=min; a-=inc){
+				setValue(a);
+				try{sleep((long) (b));}catch(Exception e){}
+				b = b * 1.05;
+			}
+		}
+	}
 	
 }

@@ -10,18 +10,15 @@ public class UISpeedometer extends BasicUIObject{
 
 	double nh, centerX, centerY,r;
 	
-	
 	public UISpeedometer(int x, int y,int r){
 		super(x,y,(r*2),(r));
 	
 		centerX = r;
 		centerY = r;
 		this.r  = r;
+		max = 100;
+		min = 0;
 		
-	}
-	public void setup(){
-		draw(this.getGraphics());
-
 	}
 
 	public void setValue(double d){
@@ -33,7 +30,11 @@ public class UISpeedometer extends BasicUIObject{
 		this.repaint();
 	}
 
+    Font font = new Font("times", Font.BOLD, 30);
+
+    FontMetrics metrics = null;
 	public void paintComponent(Graphics g) {
+		metrics = g.getFontMetrics(font);
 		Graphics2D canvas = (Graphics2D)g;
 		canvas.setColor(Color.BLACK);
 		super.paintComponent(g);
@@ -68,7 +69,7 @@ public class UISpeedometer extends BasicUIObject{
 			
 		}
 
-		double percent = getValue() / (getMax()- getMin());
+		double percent =  (value)/(max-min);
 		
 		double t3 = r - 10;
 		double tempX = 180 - (180 * percent);
@@ -85,11 +86,9 @@ public class UISpeedometer extends BasicUIObject{
 		
         int val = (int)getValue();
 
-        Font font = new Font("times", Font.BOLD, 30);
         canvas.setFont(font);
         
         
-        FontMetrics metrics = g.getFontMetrics(font);
         int adv = metrics.stringWidth(val+"");
 
         int tx = this.getWidth();
