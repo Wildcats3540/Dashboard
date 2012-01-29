@@ -60,7 +60,7 @@ public class UI2DAxisPosition extends BasicUIObject{
 		int yLoc = (int)(h * yPercent);
 		
 		canvas.drawLine((xLoc-5), yLoc, (xLoc+5), yLoc);
-		canvas.drawLine(xLoc, (yLoc-5), xLoc, (yLoc+5));
+		canvas.drawLine(xLoc, (yLoc-5), xLoc, (yLoc+5));  
 	}
 	
 	public void update(){
