@@ -35,7 +35,7 @@ public class Dashboard {
 	
 private int z = 0;
 	public void start(){
-		new NetManager().start();
+
 		f.setSize(1024, 710);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -64,6 +64,10 @@ private int z = 0;
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}*/
+		
+		try{Thread.sleep(5000);}catch(Exception e){}
+		
+		new NetManager().start();
 		}
 
 	
@@ -76,14 +80,19 @@ private int z = 0;
 		UITextField tf1 = new UITextField(800,100,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
 		UITextField tf2 = new UITextField(800,140,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
 		UITextField tf3 = new UITextField(800,180,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf4 = new UITextField(800,220,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf5 = new UITextField(800,260,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf6 = new UITextField(800,300,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-
+		UITextField tf4 = new UITextField(800,220,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		UITextField tf5 = new UITextField(800,260,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
+		UITextField tf6 = new UITextField(800,300,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
+		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(400,250,200,200).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
 		
 		UIGraph accelly = (UIGraph) new UIGraph(300,500,400,100).setUpdater(DataTypes.DATA_DIGITAL_1);
-		UISpeedometer spd = (UISpeedometer) new UISpeedometer(300,50,150).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1);
+		UISpeedometer spd = (UISpeedometer) new UISpeedometer(300,50,150).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
 		
+		UIGraph ping  = (UIGraph) new UIGraph(800,500,100,50).setUpdater(DataTypes.DATA_NETWORK_PING);
+		UIGraph volts = (UIGraph) new UIGraph(800,560,100,50).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		
+		ping.setMin(0);
+		ping.setMax(100);
 		
 		accelly.setMax(4);
 	    accelly.setMin(-4);
@@ -92,7 +101,8 @@ private int z = 0;
 	    throttle1.setMin(-1);
 	    throttle1.setValue(-.75);
 	    
-		   
+	    volts.setMax(14);
+	    volts.setMin(10);
 		p.add(throttle2);
 		p.add(throttle1);
 		p.add(speed2);
@@ -105,7 +115,9 @@ private int z = 0;
 		p.add(tf6);
 		p.add(accelly);
 		p.add(spd);
-		
+		p.add(ping);
+		p.add(volts);
+		p.add(axis);
 		/*LoadingOverlay ov = new LoadingOverlay(0,0,f.getWidth(),f.getHeight());
 		
 		f.add(ov);*/

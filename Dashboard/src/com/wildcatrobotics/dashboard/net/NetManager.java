@@ -3,6 +3,7 @@ package com.wildcatrobotics.dashboard.net;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.util.Date;
 
 import com.wildcatrobotics.dashboard.Dashboard;
 import com.wildcatrobotics.dashboard.functions.UpdateManager;
@@ -25,6 +26,7 @@ public class NetManager extends Thread {
 	
 	
 	public void run(){
+		while(true){
 		try {
 			Socket skt = new Socket(Dashboard.ip, Dashboard.port);
 
@@ -32,9 +34,12 @@ public class NetManager extends Thread {
 			setConnected(true);
 			System.out.println("Connected");
 				while(skt.isConnected()){
+					long time  = new Date().getTime();
 					String s = in.readUTF();
 					//System.out.println(s);
 					DataManager.updateFull(netConvHelp.RawToHash(s));
+					time = new Date().getTime() - time;
+					DataManager.put(DataTypes.DATA_NETWORK_PING, time);
 					UpdateManager.updateFull();
 				}
 			setConnected(false);
@@ -45,6 +50,7 @@ public class NetManager extends Thread {
 		catch(Exception e) {
 			System.out.println("Failed to connect");
 			e.printStackTrace();
+		}
 		}
 	}
 	

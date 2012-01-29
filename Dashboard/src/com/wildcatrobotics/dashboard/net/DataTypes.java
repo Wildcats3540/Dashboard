@@ -25,6 +25,7 @@ public class DataTypes{
 	public static final int[] META_DIGITAL  = new int[] {20,33, TYPE_DOUBLE};
 	public static final int[] META_RELAY    = new int[] {40,47, TYPE_DOUBLE};
 	public static final int[] META_JOYSTICK = new int[] {100,300,TYPE_DOUBLE};
+	public static final int[] META_NETWORK  = new int[] {11000,11005,TYPE_DOUBLE};
 
 	public static final int[][] META_RANGE = 
 		{	
@@ -32,7 +33,8 @@ public class DataTypes{
 			META_PWM,
 			META_DIGITAL,
 			META_RELAY,
-			META_JOYSTICK
+			META_JOYSTICK,
+			META_NETWORK
 		};
 	
 	
@@ -44,6 +46,12 @@ public class DataTypes{
 	public static final int DATA_ROBOT_MODE = 2;
 	public static final int DATA_ROBOT_VOLTS = 3;
 	
+	
+	
+	
+	//NETWORK VALUES
+	//RESERVED 11000-11005
+	public static final int DATA_NETWORK_PING = 11000;
 	
 	//PWM
 	//RESERVED: 10-19
