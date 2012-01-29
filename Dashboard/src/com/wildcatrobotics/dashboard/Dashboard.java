@@ -45,6 +45,7 @@ private int z = 0;
 		
 		setup();
 		f.add(p);
+		//p.setBackground(new Color(100,110,200));
 		f.setVisible(true);
 		/*while(true){
 			if (z>0)
@@ -93,7 +94,7 @@ private int z = 0;
 		
 		UIGraph ping  = (UIGraph) new UIGraph(800,500,100,50).setUpdater(DataTypes.DATA_NETWORK_PING);
 		UIGraph volts = (UIGraph) new UIGraph(800,560,100,50).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
-		UIDial dial1 = (UIDial) new UIDial(100, 410, 150).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1);
+		UIDial dial1 = (UIDial) new UIDial(100, 410, 100).setUpdater(DataTypes.DATA_DIGITAL_13);
 		
 		ping.setMin(0);
 		ping.setMax(100);
