@@ -100,7 +100,6 @@ public class UISpeedometer extends BasicUIObject{
 
 	}
 
-
 	/*private void drawRadius(Graphics2D g2, double percent,
 			int minRadius, int maxRadius) {
 		//... percent parameter is the fraction (0.0 - 1.0) of the way
@@ -118,7 +117,4 @@ public class UISpeedometer extends BasicUIObject{
 		int dymax = centerY + (int)(maxRadius * cosine);
 		g2.drawLine(dxmin, dymin, dxmax, dymax);
 	}*/
-
 }
-
-

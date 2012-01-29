@@ -16,6 +16,7 @@ import com.wildcatrobotics.dashboard.objects.UIColorChanger;
 import com.wildcatrobotics.dashboard.objects.UIGraph;
 import com.wildcatrobotics.dashboard.objects.UISpeedometer;
 import com.wildcatrobotics.dashboard.objects.UITextField;
+import com.wildcatrobotics.dashboard.objects.UIDial;
 import com.wildcatrobotics.dashboard.sockettest.Ping;
 import com.wildcatrobotics.dashboard.util.NetworkConversionHelper;
 
@@ -79,10 +80,12 @@ private int z = 0;
 		UITextField tf4 = new UITextField(800,220,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
 		UITextField tf5 = new UITextField(800,260,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
 		UITextField tf6 = new UITextField(800,300,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		
 
 		
 		UIGraph accelly = (UIGraph) new UIGraph(300,500,400,100).setUpdater(DataTypes.DATA_DIGITAL_1);
 		UISpeedometer spd = (UISpeedometer) new UISpeedometer(300,50,150).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1);
+		UIDial dial1 = (UIDial) new UIDial(300, 210, 150).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1);
 		
 		
 		accelly.setMax(4);
@@ -105,12 +108,14 @@ private int z = 0;
 		p.add(tf6);
 		p.add(accelly);
 		p.add(spd);
+		p.add(dial1);
 		
 		/*LoadingOverlay ov = new LoadingOverlay(0,0,f.getWidth(),f.getHeight());
 		
 		f.add(ov);*/
 		//spd.setValue(75);
 		p.add(new JPanel());
+		dial1.setValue(0);
 		
 	}
 	
