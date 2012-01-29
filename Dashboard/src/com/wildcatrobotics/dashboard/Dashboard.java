@@ -13,6 +13,7 @@ import com.wildcatrobotics.dashboard.net.NetManager;
 import com.wildcatrobotics.dashboard.objects.UI2DAxisPosition;
 import com.wildcatrobotics.dashboard.objects.UIBar;
 import com.wildcatrobotics.dashboard.objects.UIColorChanger;
+import com.wildcatrobotics.dashboard.objects.UIDial;
 import com.wildcatrobotics.dashboard.objects.UIGraph;
 import com.wildcatrobotics.dashboard.objects.UISpeedometer;
 import com.wildcatrobotics.dashboard.objects.UITextField;
@@ -84,10 +85,7 @@ private int z = 0;
 		UITextField tf5 = new UITextField(800,260,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
 		UITextField tf6 = new UITextField(800,300,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
 		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(400,250,200,200).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
-		UITextField tf4 = new UITextField(800,220,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf5 = new UITextField(800,260,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf6 = new UITextField(800,300,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		
+
 
 		
 		UIGraph accelly = (UIGraph) new UIGraph(300,500,400,100).setUpdater(DataTypes.DATA_DIGITAL_1);
@@ -95,7 +93,7 @@ private int z = 0;
 		
 		UIGraph ping  = (UIGraph) new UIGraph(800,500,100,50).setUpdater(DataTypes.DATA_NETWORK_PING);
 		UIGraph volts = (UIGraph) new UIGraph(800,560,100,50).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
-		UIDial dial1 = (UIDial) new UIDial(300, 210, 150).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1);
+		UIDial dial1 = (UIDial) new UIDial(100, 410, 150).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1);
 		
 		ping.setMin(0);
 		ping.setMax(100);
@@ -124,6 +122,7 @@ private int z = 0;
 		p.add(ping);
 		p.add(volts);
 		p.add(axis);
+		p.add(dial1);
 		/*LoadingOverlay ov = new LoadingOverlay(0,0,f.getWidth(),f.getHeight());
 		
 		f.add(ov);*/
