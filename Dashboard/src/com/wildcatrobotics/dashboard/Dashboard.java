@@ -16,6 +16,7 @@ import com.wildcatrobotics.dashboard.objects.UIColorChanger;
 import com.wildcatrobotics.dashboard.objects.UIDial;
 import com.wildcatrobotics.dashboard.objects.UIGraph;
 import com.wildcatrobotics.dashboard.objects.UISpeedometer;
+import com.wildcatrobotics.dashboard.objects.UIText;
 import com.wildcatrobotics.dashboard.objects.UITextField;
 import com.wildcatrobotics.dashboard.sockettest.Ping;
 import com.wildcatrobotics.dashboard.util.NetworkConversionHelper;
@@ -95,6 +96,8 @@ private int z = 0;
 		UIGraph ping  = (UIGraph) new UIGraph(800,500,100,50).setUpdater(DataTypes.DATA_NETWORK_PING);
 		UIGraph volts = (UIGraph) new UIGraph(800,560,100,50).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
 		UIDial dial1 = (UIDial) new UIDial(100, 410, 100).setUpdater(DataTypes.DATA_DIGITAL_13);
+		UIText text1 = (UIText) new UIText(0, 0, 100,50).setUpdater(DataTypes.DATA_DIGITAL_13);
+		//text1.setValue("HUEHUEHUE");
 		
 		ping.setMin(0);
 		ping.setMax(100);
@@ -124,6 +127,7 @@ private int z = 0;
 		p.add(volts);
 		p.add(axis);
 		p.add(dial1);
+		p.add(text1);
 		/*LoadingOverlay ov = new LoadingOverlay(0,0,f.getWidth(),f.getHeight());
 		
 		f.add(ov);*/
