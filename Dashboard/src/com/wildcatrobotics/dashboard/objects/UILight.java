@@ -4,9 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-public class UIColorChanger extends BasicUIObject{
+public class UILight extends BasicUIObject{
 
-	public UIColorChanger(int x, int y, int w, int h) {
+	public UILight(int x, int y, int w, int h) {
 		super(x, y, w, h);
 		// TODO Auto-generated constructor stub
 	}
