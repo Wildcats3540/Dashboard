@@ -45,7 +45,7 @@ private int z = 0;
 		
 		setup();
 		f.add(p);
-		//p.setBackground(new Color(100,110,200));
+		//p.setBackground(new Color(255,0,0));
 		f.setVisible(true);
 		/*while(true){
 			if (z>0)
@@ -131,6 +131,10 @@ private int z = 0;
 		f.add(ov);*/
 		//spd.setValue(75);
 		p.add(new JPanel());
+		
+	}
+	
+	public static void setConnected(boolean b){
 		
 	}
 	

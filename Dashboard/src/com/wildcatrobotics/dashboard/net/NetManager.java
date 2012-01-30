@@ -59,13 +59,7 @@ public class NetManager extends Thread {
 	
 	private static void setConnected(Boolean b){
 		connected = b;
-		if(connected){
-			runConnectionTask();
-		}
-		else
-		{
-			//runDCTask();
-		}
+		runConnectionTask(b);
 	}
 	
 	
@@ -77,7 +71,9 @@ public class NetManager extends Thread {
 		return status;
 	}
 	
-	public static void runConnectionTask(){
+	public static void runConnectionTask(boolean b){
+		
+		
 	}
 	
 }
