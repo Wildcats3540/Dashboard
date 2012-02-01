@@ -1,12 +1,23 @@
 package com.wildcatrobotics.dashboard;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import com.wildcatrobotics.dashboard.net.DataTypes;
 import com.wildcatrobotics.dashboard.net.NetManager;
@@ -22,51 +33,104 @@ import com.wildcatrobotics.dashboard.util.NetworkConversionHelper;
 
 public class Dashboard {
 
+	
+	public static String ip = "10.35.40.2";
+	public static int port = 7777;
+		
+	
+	
 	JFrame f = new JFrame("Dashboard");
 	JPanel p = new JPanel();
 	JPanel cameraT = new JPanel();
 	
-	public static final String ip = "10.35.40.2";
-	public static final int port = 7777;
+
+	JFrame setD = new JFrame();
+	JTextField setIPT = new JTextField();
+	JTextField setPortT = new JTextField();
+	
+	private static JDialog connectedWindow = new JDialog();
 	
 	public static double data = 0;
+	
 	public static void main(String args[]){
-		new Dashboard().start();
+		new Dashboard().run();
 	}
 	
-private int z = 0;
+	
+	public void run(){
+		JPanel  setP = new JPanel();
+		JPanel setPB = new JPanel();
+		JLabel about = new JLabel("<html><br><center>Wildcat Robotics - FIRST Team 3540 - 2011/2012</center>");
+		JLabel setIP = new JLabel("IP");
+		JLabel setPort = new JLabel("Port");
+		JButton setB = new JButton("Connect");
+		
+		setD.setTitle("Dashboard Startup - Wildcat Robotics 3540");
+		setD.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
+		setD.setSize(400, 175);
+		//setD.setResizable(false);
+		setP.setLayout(null);
+		setPB.setLayout(null);
+		setP.setBackground(Color.white);
+		setD.setLocationRelativeTo(null);
+		
+		setP.setBounds(0, 0, setD.getWidth(), setD.getHeight());
+		about.setBounds(50, 5,400,25);
+		setIP.setBounds(30, 1, 200, 25);
+		setPort.setBounds(230,1,50,25);
+		setPortT.setBounds(230, 26, 100, 25);
+		setIPT.setBounds(30, 26, 200, 25);
+		setB.setBounds(230, 53, 100, 30);
+		setPB.setBounds(0,50,400,100);
+		
+		setP.add(about);
+		setPB.add(setIP);
+		setPB.add(setPort);
+		setPB.add(setIPT);
+		setPB.add(setPortT);
+		setPB.add(setB);
+		setP.add(setPB);
+		setD.add(setP);
+		
+		setIPT.setText(ip);
+		setPortT.setText(port+"");
+		setIPT.setFont(new Font("courier", Font.PLAIN, 12));
+		setPortT.setFont(new Font("courier", Font.PLAIN, 12));
+		setB.addActionListener(new Connect());
+		
+		setD.setVisible(true);
+		
+	}
+	
 	public void start(){
 
 		f.setSize(1024, 710);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		p.setLayout(null);
 		p.setBounds(0, 0, f.getWidth(), f.getHeight());
-		
 		setup();
 		f.add(p);
-		//p.setBackground(new Color(255,0,0));
 		f.setVisible(true);
-		/*while(true){
-			if (z>0)
-			{
 		
-			accelly.addData(1);
-			}
-			else
-			{
-			accelly.addData(-1);
-			}
-			if (z== 10)
-			z = -10;
-			z++;
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
+		connectedWindow.setSize(400,125);
+		connectedWindow.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+		connectedWindow.setLocationRelativeTo(f);
 		
+		//connectedWindow.setLayout(null);
+		
+		
+		JLabel l = new JLabel("<html><span style=\"font-size:15px\">Connecting to "+ ip +":" + port+"</font>");
+		//l.setBounds(50,25,200,50);
+		
+		ImageIcon icon = new ImageIcon(getClass().getResource("ajax-loader1.gif"),"");;
+		JLabel activity = new JLabel(icon);
+		JPanel cp = new JPanel();
+		cp.add(activity);
+		cp.add(l);
+		connectedWindow.add(cp);
+		
+		setConnected(false);		
+
 		try{Thread.sleep(5000);}catch(Exception e){}
 		
 		new NetManager().start();
@@ -135,6 +199,28 @@ private int z = 0;
 	}
 	
 	public static void setConnected(boolean b){
+		if(b){
+			connectedWindow.setVisible(false);
+		}
+		else{
+			connectedWindow.setVisible(true);
+		}
+		
+	}
+	
+	class Connect implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			ip = setIPT.getText();
+			port = Integer.parseInt(setPortT.getText());
+			
+
+			start();
+			setD.setVisible(false);
+			setD.dispose();
+			
+		}
 		
 	}
 	

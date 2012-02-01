@@ -27,7 +27,10 @@ public class NetManager extends Thread {
 	
 	public void run(){
 		while(true){
+			setConnected(false);
+
 		try {
+			
 			Socket skt = new Socket(Dashboard.ip, Dashboard.port);
 
 			DataInputStream in = new DataInputStream(skt.getInputStream());
@@ -50,6 +53,8 @@ public class NetManager extends Thread {
 		catch(Exception e) {
 			System.out.println("Failed to connect");
 			e.printStackTrace();
+			setConnected(false);
+
 		}
 		}
 	}
@@ -73,6 +78,7 @@ public class NetManager extends Thread {
 	
 	public static void runConnectionTask(boolean b){
 		
+		Dashboard.setConnected(b);
 		
 	}
 	
