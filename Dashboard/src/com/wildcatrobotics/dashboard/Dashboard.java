@@ -159,7 +159,10 @@ public class Dashboard {
 		
 		UIGraph ping  = (UIGraph) new UIGraph(800,500,100,50).setUpdater(DataTypes.DATA_NETWORK_PING);
 		UIGraph volts = (UIGraph) new UIGraph(800,560,100,50).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+
 		UIDial dial1 = (UIDial) new UIDial(50, 410, 125).setUpdater(DataTypes.DATA_DIGITAL_13);
+
+
 		
 		ping.setMin(0);
 		ping.setMax(100);

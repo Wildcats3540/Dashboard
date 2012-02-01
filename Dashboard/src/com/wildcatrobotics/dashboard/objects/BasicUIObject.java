@@ -48,7 +48,6 @@ public class BasicUIObject extends JPanel implements UIObject  {
 	public void setValue(double d) {
 		value = d;
 		draw(this.getGraphics());
-		
 	}
 
 	@Override

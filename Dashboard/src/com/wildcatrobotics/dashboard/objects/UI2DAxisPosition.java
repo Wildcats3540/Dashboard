@@ -3,7 +3,6 @@ package com.wildcatrobotics.dashboard.objects;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
 import com.wildcatrobotics.dashboard.net.DataManager;
 import com.wildcatrobotics.dashboard.net.DataTypes;
 
