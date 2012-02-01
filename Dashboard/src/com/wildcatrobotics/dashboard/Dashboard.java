@@ -131,7 +131,7 @@ public class Dashboard {
 		
 		setConnected(false);		
 
-		try{Thread.sleep(5000);}catch(Exception e){}
+		//try{Thread.sleep(5000);}catch(Exception e){}
 		
 		new NetManager().start();
 		}
