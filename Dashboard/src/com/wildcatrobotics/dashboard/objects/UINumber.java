@@ -11,8 +11,8 @@ public class UINumber extends BasicUIObject {
 	private int tSize = 30;
 	private boolean isInt;
 	
-	public UINumber(int x, int y, int w, int h) {
-		super(x, y, w, h);
+	public UINumber(int x, int y, int w, int h, String name) {
+		super(x, y, w, h, name);
 		
 	}
 

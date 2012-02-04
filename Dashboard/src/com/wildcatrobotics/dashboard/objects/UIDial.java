@@ -10,8 +10,8 @@ public class UIDial extends BasicUIObject{
 
 	double nh, centerX, centerY,r;
 	
-	public UIDial(int x, int y,int r){
-		super(x,y,(r*2),(r*2));
+	public UIDial(int x, int y,int r, String name){
+		super(x,y,(r*2),(r*2), name);
 	
 		centerX = r;
 		centerY = r;
@@ -26,9 +26,6 @@ public class UIDial extends BasicUIObject{
 		draw(this.getGraphics());
 	}
 
-	public void draw(Graphics g) {
-		this.repaint();
-	}
 
     Font font = new Font("times", Font.BOLD, 30);
 

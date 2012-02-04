@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import com.wildcatrobotics.dashboard.functions.UpdateManager;
 import com.wildcatrobotics.dashboard.net.DataManager;
 import com.wildcatrobotics.dashboard.net.DataTypes;
+import com.wildcatrobotics.dashboard.net.NetManager;
 
 public class BasicUIObject extends JPanel implements UIObject  {
 
@@ -18,13 +19,16 @@ public class BasicUIObject extends JPanel implements UIObject  {
 	
 	int x,y,w,h;
 	
+	String name = "";
+	
 	Color mainColor = Color.black, secondaryColor = Color.black;
 	
-	public BasicUIObject(int x, int y, int w, int h){
+	public BasicUIObject(int x, int y, int w, int h, String name){
 		this.x = x;
 		this.y = y;
 		this.h = h;
 		this.w = w;
+		this.name = name;
 		this.setBounds(x, y, w+1, h+1);
 
 		setup();
@@ -66,11 +70,17 @@ public class BasicUIObject extends JPanel implements UIObject  {
 	}
 	
 
+	public void drawName(Graphics g){
+		if(g!=null && name != null)
+		g.drawString(name,2 , 11);
+		
+	}
+	
+	
+	
 	@Override
 	public void draw(Graphics g) {
-
 		this.repaint();
-			
 	}
 
 	@Override
@@ -108,6 +118,8 @@ public class BasicUIObject extends JPanel implements UIObject  {
 			double inc = (max-min)/100;
 			double b = 1.7;
 			for(double a = max; a>=min; a-=inc){
+				if(NetManager.isConnected())
+					break;
 				setValue(a);
 				try{sleep((long) (b));}catch(Exception e){}
 				b = b * 1.05;

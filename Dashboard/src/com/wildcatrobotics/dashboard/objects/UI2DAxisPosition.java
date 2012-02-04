@@ -16,8 +16,8 @@ public class UI2DAxisPosition extends BasicUIObject{
 	private int u1 = DataTypes.NULL;
 	private int u2 = DataTypes.NULL;
 	
-	public UI2DAxisPosition(int x, int y, int w, int h) {
-		super(x, y, w, h);
+	public UI2DAxisPosition(int x, int y, int w, int h, String name) {
+		super(x, y, w, h, name);
 	}
 	
 	public void setValue(double AxisX, double AxisY){

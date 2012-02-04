@@ -79,11 +79,6 @@ public class UITextField  extends JTextField implements UIObject{
 		return 0;
 	}
 
-	@Override
-	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void update() {

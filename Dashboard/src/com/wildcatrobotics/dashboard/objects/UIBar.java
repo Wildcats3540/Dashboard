@@ -9,8 +9,8 @@ public class UIBar extends BasicUIObject{
 	
 	Color mainColor = Color.green;
 	
-	public UIBar(int x, int y, int w, int h){
-		super(x,y,w,h);
+	public UIBar(int x, int y, int w, int h, String name){
+		super(x,y,w,h, name);
 		
 		
 	}
@@ -21,10 +21,6 @@ public class UIBar extends BasicUIObject{
 	public void setValue(double d){
 		value = d;
 		draw(this.getGraphics());
-	}
-
-	public void draw(Graphics g) {
-		this.repaint();
 	}
 
 	public void paintComponent(Graphics g) {

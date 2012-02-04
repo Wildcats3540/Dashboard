@@ -13,13 +13,13 @@ public class UIGraph extends BasicUIObject{
 	private int dataCount;
 	private ArrayList<Double> data = new ArrayList<Double>();
 	private boolean fill = false;
-	public UIGraph(int x, int y,int w, int h){
-		super(x,y,w,h);
+	public UIGraph(int x, int y,int w, int h, String name){
+		super(x,y,w,h,name);
 		dataCount = 100;
 		
 	}
-	public UIGraph(int x, int y,int w, int h, int dataCount){
-		super(x,y,w,h);
+	public UIGraph(int x, int y,int w, int h,String name, int dataCount){
+		super(x,y,w,h,name);
 		this.dataCount = dataCount;
 		
 	}
@@ -44,10 +44,6 @@ public class UIGraph extends BasicUIObject{
 		draw(this.getGraphics());
 	}
 
-	public void draw(Graphics g) {
-		this.repaint();
-	}
-	
 	public void paintComponent(Graphics g) {
 		Graphics2D canvas = (Graphics2D)g;
 		canvas.setColor(Color.BLACK);
@@ -64,6 +60,7 @@ public class UIGraph extends BasicUIObject{
 				index += inc;
 			}
 		}
+		drawName(g);
 		
 	}
 	

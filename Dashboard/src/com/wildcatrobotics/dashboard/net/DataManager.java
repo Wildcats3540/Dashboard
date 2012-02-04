@@ -9,6 +9,17 @@ public class DataManager {
 	private static Hashtable<Integer, Object>data = new Hashtable<Integer, Object>();
 	private static NetworkConversionHelper h = new NetworkConversionHelper();
 	
+	public static synchronized void setup(){
+		
+		for(int a = 0;DataTypes.META_RANGE.length>a;a++){
+			for(int b = DataTypes.META_RANGE[a][0]; b<  DataTypes.META_RANGE[a][1]; b++){
+				put(new Integer(b), 0);
+			}
+		}
+	}
+	
+	
+	
 	public static synchronized void put(Integer i, Object o){
 		data.put(i, o);
 	}

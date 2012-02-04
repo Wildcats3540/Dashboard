@@ -10,8 +10,8 @@ public class UISpeedometer extends BasicUIObject{
 
 	double nh, centerX, centerY,r;
 	
-	public UISpeedometer(int x, int y,int r){
-		super(x,y,(r*2),(r));
+	public UISpeedometer(int x, int y,int r, String name){
+		super(x,y,(r*2),(r), name);
 	
 		centerX = r;
 		centerY = r;
@@ -26,9 +26,6 @@ public class UISpeedometer extends BasicUIObject{
 		draw(this.getGraphics());
 	}
 
-	public void draw(Graphics g) {
-		this.repaint();
-	}
 
     Font font = new Font("times", Font.BOLD, 30);
 

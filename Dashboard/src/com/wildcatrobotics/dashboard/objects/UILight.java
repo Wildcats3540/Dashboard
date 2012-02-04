@@ -6,8 +6,8 @@ import java.awt.Graphics2D;
 
 public class UILight extends BasicUIObject{
 
-	public UILight(int x, int y, int w, int h) {
-		super(x, y, w, h);
+	public UILight(int x, int y, int w, int h, String name) {
+		super(x, y, w, h, name);
 		// TODO Auto-generated constructor stub
 	}
 	
