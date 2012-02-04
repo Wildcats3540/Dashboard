@@ -85,4 +85,10 @@ public class UITextField  extends JTextField implements UIObject{
 		setValue(DataManager.get(a).toString());
 	}
 
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
