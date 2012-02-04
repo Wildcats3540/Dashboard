@@ -141,28 +141,28 @@ public class Dashboard {
 	
 
 	public void setup(){
-		UIBar throttle1 = (UIBar) new UIBar(800,300,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
-		UIBar throttle2 = (UIBar) new UIBar(820,300,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
-		UIBar speed1    = (UIBar) new UIBar(775,300,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_1);
-		UIBar speed2    = (UIBar) new UIBar(825,300,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_2);
-		UITextField tf1 = new UITextField(770,50,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf2 = new UITextField(770,90,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf3 = new UITextField(770,130,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf4 = new UITextField(770,170,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
-		UITextField tf5 = new UITextField(770,210,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
-		UITextField tf6 = new UITextField(770,250,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
-		UILight    mode = (UILight) new UILight(800,50,150,150, "Mode").setUpdater(DataTypes.DATA_ROBOT_MODE);
-		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(400,250,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
+		UIBar throttle1 = (UIBar) new UIBar(800,250,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
+		UIBar throttle2 = (UIBar) new UIBar(820,250,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
+		UIBar speed1    = (UIBar) new UIBar(775,250,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_1);
+		UIBar speed2    = (UIBar) new UIBar(825,250,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_2);
+		UITextField tf1 = new UITextField(770,20,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf2 = new UITextField(770,60,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf3 = new UITextField(770,100,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf4 = new UITextField(770,140,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		UITextField tf5 = new UITextField(770,180,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
+		UITextField tf6 = new UITextField(770,220,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
+		UILight    mode = (UILight) new UILight(50, 50,150,150, "Mode").setUpdater(DataTypes.DATA_ROBOT_MODE);
+		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(50,225,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
 
 
 		
-		UIGraph accelly = (UIGraph) new UIGraph(450,500,250,200, "Accel").setUpdater(DataTypes.DATA_DIGITAL_1);
-		UISpeedometer spd = (UISpeedometer) new UISpeedometer(340,50,150, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
+		UIGraph accelly = (UIGraph) new UIGraph(50,450,250,200, "Accel").setUpdater(DataTypes.DATA_DIGITAL_1);
+		UISpeedometer spd = (UISpeedometer) new UISpeedometer(400,450,150, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
 		
-		UIGraph ping  = (UIGraph) new UIGraph(800,500,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
-		UIGraph volts = (UIGraph) new UIGraph(800,560,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		UIGraph ping  = (UIGraph) new UIGraph(200,100,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
+		UIGraph volts = (UIGraph) new UIGraph(200,160,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
 
-		UIDial dial1 = (UIDial) new UIDial(50, 410, 125, "Dial").setUpdater(DataTypes.DATA_DIGITAL_13);
+		UIDial dial1 = (UIDial) new UIDial(750, 415, 125, "Dial").setUpdater(DataTypes.DATA_DIGITAL_13);
 
 
 		
