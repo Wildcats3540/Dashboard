@@ -18,7 +18,7 @@ public class UICamera extends BasicUIObject{
 		super.paintComponent(g);
 		
 	
-		if()
+		//if()
 		
 		
 		

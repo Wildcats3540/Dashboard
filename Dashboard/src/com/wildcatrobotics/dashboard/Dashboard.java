@@ -114,9 +114,9 @@ public class Dashboard {
 		f.setVisible(true);
 		
 		connectedWindow.setSize(400,125);
-		connectedWindow.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+		//connectedWindow.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		connectedWindow.setLocationRelativeTo(f);
-		connectedWindow.setAlwaysOnTop(true);
+		//connectedWindow.setAlwaysOnTop(true);
 		
 		//connectedWindow.setLayout(null);
 		
@@ -141,16 +141,16 @@ public class Dashboard {
 	
 
 	public void setup(){
-		UIBar throttle1 = (UIBar) new UIBar(700,50,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
-		UIBar throttle2 = (UIBar) new UIBar(720,50,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
-		UIBar speed1    = (UIBar) new UIBar(675,50,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_1);
-		UIBar speed2    = (UIBar) new UIBar(725,50,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_2);
-		UITextField tf1 = new UITextField(770,250,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf2 = new UITextField(770,290,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf3 = new UITextField(770,330,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf4 = new UITextField(770,370,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
-		UITextField tf5 = new UITextField(770,410,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
-		UITextField tf6 = new UITextField(770,450,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
+		UIBar throttle1 = (UIBar) new UIBar(800,300,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
+		UIBar throttle2 = (UIBar) new UIBar(820,300,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
+		UIBar speed1    = (UIBar) new UIBar(775,300,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_1);
+		UIBar speed2    = (UIBar) new UIBar(825,300,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_2);
+		UITextField tf1 = new UITextField(770,50,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf2 = new UITextField(770,90,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf3 = new UITextField(770,130,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf4 = new UITextField(770,170,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		UITextField tf5 = new UITextField(770,210,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
+		UITextField tf6 = new UITextField(770,250,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
 		UILight    mode = (UILight) new UILight(800,50,150,150, "Mode").setUpdater(DataTypes.DATA_ROBOT_MODE);
 		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(400,250,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
 
