@@ -97,7 +97,7 @@ public class UICamera extends BasicUIObject{
 					while(!stop){
 						try {
 							jpg = jpgin.readMjpegFrame();
-							b.write(jpg.getBytes());
+						//	b.write(jpg.getBytes());
 						} catch (IOException e) {System.out.println("asdfsdf");stop = true;}
 						
 						repaint();
