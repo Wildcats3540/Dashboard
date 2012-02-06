@@ -51,8 +51,6 @@ public class NetManager extends Thread {
 			
 		}
 		catch(Exception e) {
-			System.out.println("Failed to connect");
-			e.printStackTrace();
 			setConnected(false);
 
 		}
