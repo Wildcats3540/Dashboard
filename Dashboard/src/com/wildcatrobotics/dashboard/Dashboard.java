@@ -35,17 +35,13 @@ import com.wildcatrobotics.dashboard.util.NetworkConversionHelper;
 
 public class Dashboard {
 
-	
 	public static String ip = "10.35.40.2";
 	public static int port = 7777;
-		
-	
-	
+
 	JFrame f = new JFrame("Dashboard");
 	JPanel p = new JPanel();
 	JPanel cameraT = new JPanel();
 	
-
 	JFrame setD = new JFrame();
 	JTextField setIPT = new JTextField();
 	JTextField setPortT = new JTextField();
@@ -57,7 +53,6 @@ public class Dashboard {
 	public static void main(String args[]){
 		new Dashboard().run();
 	}
-	
 	
 	public void run(){
 		JPanel  setP = new JPanel();
@@ -101,11 +96,9 @@ public class Dashboard {
 		setB.addActionListener(new Connect());
 		
 		setD.setVisible(true);
-		
 	}
 	
 	public void start(){
-
 		f.setSize(1024, 710);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		p.setLayout(null);
@@ -117,11 +110,8 @@ public class Dashboard {
 		connectedWindow.setSize(400,125);
 		//connectedWindow.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		connectedWindow.setLocationRelativeTo(f);
-		//connectedWindow.setAlwaysOnTop(true);
-		
-		//connectedWindow.setLayout(null);
-		
-		
+		connectedWindow.setAlwaysOnTop(true);
+		connectedWindow.setLayout(null);
 		JLabel l = new JLabel("<html><span style=\"font-size:15px\">Connecting to "+ ip +":" + port+"</font>");
 		//l.setBounds(50,25,200,50);
 		
@@ -134,46 +124,39 @@ public class Dashboard {
 		
 		setConnected(false);		
 		
-		
 		DataManager.setup();
 		new NetManager().start();
 		}
 
-	
-
 	public void setup(){
+		UIBar throttle1 = (UIBar) new UIBar(295,515,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
+		UIBar throttle2 = (UIBar) new UIBar(310,515,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
+		UIBar speed1    = (UIBar) new UIBar(270,515,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_1);
+		UIBar speed2    = (UIBar) new UIBar(315,515,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_2);
+		UITextField tf1 = new UITextField(805,45,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf2 = new UITextField(805,75,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf3 = new UITextField(805,105,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf4 = new UITextField(805,135,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		UITextField tf5 = new UITextField(805,165,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
+		UITextField tf6 = new UITextField(805,195,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
+		UILight status = (UILight) new UILight(5,5,1000,35, "Mode").setUpdater(DataTypes.DATA_ROBOT_MODE);
+		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(5,45,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
 
-		UIBar throttle1 = (UIBar) new UIBar(875,220,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
-		UIBar throttle2 = (UIBar) new UIBar(900,220,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
-		UIBar speed1    = (UIBar) new UIBar(850,220,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_1);
-		UIBar speed2    = (UIBar) new UIBar(905,220,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_2);
-		UITextField tf1 = new UITextField(800,10,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf2 = new UITextField(800,40,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf3 = new UITextField(800,70,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf4 = new UITextField(800,100,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
-		UITextField tf5 = new UITextField(800,130,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
-		UITextField tf6 = new UITextField(800,160,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
-		UILight    mode = (UILight) new UILight(10,10,75,75, "Mode").setUpdater(DataTypes.DATA_ROBOT_MODE);
-		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(10,125,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
+		UICamera camera = new UICamera(255,45,500,400, "Camera");
 
-		UICamera camera = new UICamera(300,35,500,400, "Camera");
-
+		UIGraph accellerator = (UIGraph) new UIGraph(5,515,250,150, "Accel").setUpdater(DataTypes.DATA_DIGITAL_1);
+		UISpeedometer speedometer = (UISpeedometer) new UISpeedometer(375,465,200, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
 		
-		UIGraph accelly = (UIGraph) new UIGraph(10,500,250,150, "Accel").setUpdater(DataTypes.DATA_DIGITAL_1);
-		UISpeedometer spd = (UISpeedometer) new UISpeedometer(350,450,200, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
-		
-		UIGraph ping  = (UIGraph) new UIGraph(25,425,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
-		UIGraph volts = (UIGraph) new UIGraph(145,425,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		UIGraph ping  = (UIGraph) new UIGraph(5,460,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
+		UIGraph volts = (UIGraph) new UIGraph(5,405,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
 
-		UIDial dial1 = (UIDial) new UIDial(775, 425, 100, "Dial").setUpdater(DataTypes.DATA_DIGITAL_13);
+		UIDial gyro = (UIDial) new UIDial(805,470,100, "Dial").setUpdater(DataTypes.DATA_DIGITAL_13);
 
-
-		
 		ping.setMin(0);
 		ping.setMax(100);
 		
-		accelly.setMax(4);
-	    accelly.setMin(-4);
+		accellerator.setMax(4);
+		accellerator.setMin(-4);
 		
 	    throttle1.setMax(1);
 	    throttle1.setMin(-1);
@@ -191,20 +174,18 @@ public class Dashboard {
 		p.add(tf4);
 		p.add(tf5);
 		p.add(tf6);
-		p.add(accelly);
-		p.add(spd);
+		p.add(accellerator);
+		p.add(speedometer);
 		p.add(ping);
 		p.add(volts);
 		p.add(axis);
-		p.add(dial1);
-		p.add(mode);
+		p.add(gyro);
+		p.add(status);
 		p.add(camera);
 		/*LoadingOverlay ov = new LoadingOverlay(0,0,f.getWidth(),f.getHeight());
-		
 		f.add(ov);*/
 		//spd.setValue(75);
 		p.add(new JPanel());
-		
 	}
 	
 	public static void setConnected(boolean b){
@@ -212,10 +193,9 @@ public class Dashboard {
 			connectedWindow.setVisible(false);
 		}
 		else{
-			if(!connectedWindow.isVisible())
-			connectedWindow.setVisible(true);
+			//if(!connectedWindow.isVisible())
+			//connectedWindow.setVisible(true);
 		}
-		
 	}
 	
 	class Connect implements ActionListener{
@@ -225,14 +205,9 @@ public class Dashboard {
 			ip = setIPT.getText();
 			port = Integer.parseInt(setPortT.getText());
 			
-
 			start();
 			setD.setVisible(false);
-			setD.dispose();
-			
-		}
-		
-	}
-	
-	
+			setD.dispose();	
+		}	
+	}	
 }
