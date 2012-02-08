@@ -142,8 +142,9 @@ public class Dashboard {
 		UILight status = (UILight) new UILight(5,5,1000,35, "Mode").setUpdater(DataTypes.DATA_ROBOT_MODE);
 		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(5,45,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
 
-		UICamera camera = new UICamera(255,45,500,400, "Camera");
-
+		UICamera camera = new UICamera(225,45,300,220, "Camera", "http://10.35.40.20/mjpg/video.mjpg");
+		UICamera camera2 = new UICamera(500,45,300,220, "Camera", "http://10.35.40.21/mjpg/video.mjpg");
+		
 		UIGraph accellerator = (UIGraph) new UIGraph(5,515,250,150, "Accel").setUpdater(DataTypes.DATA_DIGITAL_1);
 		UISpeedometer speedometer = (UISpeedometer) new UISpeedometer(375,465,200, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
 		
@@ -182,6 +183,7 @@ public class Dashboard {
 		p.add(gyro);
 		p.add(status);
 		p.add(camera);
+		p.add(camera2);
 		/*LoadingOverlay ov = new LoadingOverlay(0,0,f.getWidth(),f.getHeight());
 		f.add(ov);*/
 		//spd.setValue(75);

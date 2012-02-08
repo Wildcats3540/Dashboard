@@ -44,7 +44,7 @@ public class UICamera extends BasicUIObject{
 	MjpegInputStream jpgin;
 	FileOutputStream b;
 	boolean stop = false;
-	public UICamera(int x, int y, int w, int h, String name) {
+	public UICamera(int x, int y, int w, int h, String name, String add) {
 		super(x, y, w, h, name);
 		this.setLayout(null);
 		cp.setBounds(w/2 - 150, h/2 - 75, 300,150);
@@ -55,6 +55,7 @@ public class UICamera extends BasicUIObject{
 		cp.add(ip);
 		cp.add(l);
 		this.add(cp);
+		ip.setText(add);
 		new CameraFeed().start();
 
 
