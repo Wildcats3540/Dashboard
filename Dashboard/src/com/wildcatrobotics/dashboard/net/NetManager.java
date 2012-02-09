@@ -37,6 +37,7 @@ public class NetManager extends Thread {
 			setConnected(true);
 			System.out.println("Connected");
 				while(skt.isConnected()){
+					try{
 					long time  = new Date().getTime();
 					String s = in.readUTF();
 					//System.out.println(s);
@@ -44,6 +45,7 @@ public class NetManager extends Thread {
 					time = new Date().getTime() - time;
 					DataManager.put(DataTypes.DATA_NETWORK_PING, time);
 					UpdateManager.updateFull();
+					}catch(Exception e){}
 				}
 			setConnected(false);
 			in.close();

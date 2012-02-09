@@ -140,16 +140,24 @@ public class Dashboard {
 		UITextField tf5 = new UITextField(805,165,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
 		UITextField tf6 = new UITextField(805,195,200,25).setUpdater(DataTypes.DATA_DIGITAL_1);
 		UILight status = (UILight) new UILight(5,5,1000,35, "Mode").setUpdater(DataTypes.DATA_ROBOT_MODE);
-		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(5,45,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
+		Hashtable<Integer, Color>colors = new Hashtable<Integer,Color>();
+		colors.put(0, Color.black);
+		colors.put(1, Color.RED);
+		colors.put(2, Color.LIGHT_GRAY);
+		colors.put(3, Color.blue);
+		colors.put(4, Color.green);
+		status.setColors(colors);
 
-		UICamera camera = new UICamera(225,45,300,220, "Camera", "http://10.35.40.20/mjpg/video.mjpg");
-		UICamera camera2 = new UICamera(500,45,300,220, "Camera", "http://10.35.40.21/mjpg/video.mjpg");
+		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(5,465,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
+
+		UICamera camera = new UICamera(5,45,395,300, "Camera", "http://10.35.40.20/mjpg/video.mjpg");
+		UICamera camera2 = new UICamera(405,45,395,300, "Camera", "http://10.35.40.21/mjpg/video.mjpg");
 		
-		UIGraph accellerator = (UIGraph) new UIGraph(5,515,250,150, "Accel").setUpdater(DataTypes.DATA_DIGITAL_1);
+		UIGraph accellerator = (UIGraph) new UIGraph(5,515,250,150, "Accel",200).setUpdater(DataTypes.DATA_DIGITAL_1);
 		UISpeedometer speedometer = (UISpeedometer) new UISpeedometer(375,465,200, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
 		
-		UIGraph ping  = (UIGraph) new UIGraph(5,460,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
-		UIGraph volts = (UIGraph) new UIGraph(5,405,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
+		UIGraph ping  = (UIGraph) new UIGraph(5,410,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
+		UIGraph volts = (UIGraph) new UIGraph(5,350,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
 
 		UIDial gyro = (UIDial) new UIDial(805,470,100, "Dial").setUpdater(DataTypes.DATA_DIGITAL_13);
 
@@ -158,6 +166,7 @@ public class Dashboard {
 		
 		accellerator.setMax(4);
 		accellerator.setMin(-4);
+		
 		
 	    throttle1.setMax(1);
 	    throttle1.setMin(-1);
@@ -175,7 +184,7 @@ public class Dashboard {
 		p.add(tf4);
 		p.add(tf5);
 		p.add(tf6);
-		p.add(accellerator);
+		//p.add(accellerator);
 		p.add(speedometer);
 		p.add(ping);
 		p.add(volts);

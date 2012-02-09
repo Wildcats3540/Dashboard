@@ -52,9 +52,12 @@ public class UI2DAxisPosition extends BasicUIObject{
 		//canvas.drawRect(((w/2)-5), ((h/2)-5), 10, 10);
 		//canvas.drawLine(((w/2)-5), (h/2), ((w/2)+5), (h/2));
 		//canvas.drawLine((w/2), ((h/2)-5), (w/2), ((h/2)+5));
-		double xPercent = AxisX / (getXMax()- getXMin());
+		double df0x = 0-XMin;
+		double df0y = 0-YMin;
+
+		double xPercent = (AxisX+df0x) / ((getXMax()+df0x)- (getXMin()+df0x));
 		int xLoc = (int)(w * xPercent);
-		double yPercent = AxisY / (getYMax()- getYMin());
+		double yPercent = (AxisY+df0y) / ((getYMax()+df0y) - (getYMin()+df0y));
 		int yLoc = (int)(h * yPercent);
 		
 		canvas.drawLine((xLoc-5), yLoc, (xLoc+5), yLoc);

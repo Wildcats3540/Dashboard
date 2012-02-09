@@ -76,8 +76,8 @@ public class UICamera extends BasicUIObject{
 			
 			icanvas.setStroke(new BasicStroke(5));
 			
-			icanvas.drawLine(w/2, 100, w/2 - 25,150);
-			icanvas.drawLine(w/2, 100, w/2 + 25, 150);
+			//icanvas.drawLine(w/2, 100, w/2 - 25,150);
+			//icanvas.drawLine(w/2, 100, w/2 + 25, 150);
 			
 			
 			canvas.drawImage(img,0,0,w,h,this);
