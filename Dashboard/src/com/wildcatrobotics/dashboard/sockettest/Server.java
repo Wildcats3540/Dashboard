@@ -22,8 +22,9 @@ public class Server {
 			while(skt.isConnected()){
 				Hashtable<Integer,Object>a = new Hashtable<Integer,Object>();
 				Random rand = new Random();
-				a.put(DataTypes.DATA_JOYSTICK_1_AXIS1, rand.nextDouble());
-				a.put(DataTypes.DATA_JOYSTICK_1_AXIS2, rand.nextInt(100));
+				a.put(DataTypes.DATA_JOYSTICK_1_AXIS1, rand.nextDouble()*2 -1);
+				a.put(DataTypes.DATA_JOYSTICK_1_AXIS2, rand.nextDouble()*2 -1);
+				a.put(DataTypes.DATA_JOYSTICK_1_AXIS3, rand.nextInt(100));
 				String b = a.toString();
 				System.out.println(b);
 				in.writeUTF(b);

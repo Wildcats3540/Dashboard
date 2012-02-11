@@ -54,6 +54,11 @@ public class Dashboard {
 		new Dashboard().run();
 	}
 	
+
+	/**
+	 * This method is the first method to be called at startup of the dashboard.
+	 * Currently this method creates and displays the connection settings window.
+	 */
 	public void run(){
 		JPanel  setP = new JPanel();
 		JPanel setPB = new JPanel();
@@ -98,6 +103,14 @@ public class Dashboard {
 		setD.setVisible(true);
 	}
 	
+	/**
+	 * This method is the starting point for the program. Called when the connect button is pressed on the setup window
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	public void start(){
 		f.setSize(1024, 710);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,7 +126,7 @@ public class Dashboard {
 		connectedWindow.setAlwaysOnTop(true);
 		connectedWindow.setLayout(null);
 		JLabel l = new JLabel("<html><span style=\"font-size:15px\">Connecting to "+ ip +":" + port+"</font>");
-		//l.setBounds(50,25,200,50);
+		l.setBounds(50,25,200,50);
 		
 		ImageIcon icon = new ImageIcon(getClass().getResource("ajax-loader1.gif"),"");;
 		JLabel activity = new JLabel(icon);
@@ -128,13 +141,17 @@ public class Dashboard {
 		new NetManager().start();
 		}
 
+	
+	/**
+	 * This is where all the UI Elements are added and setup
+	 */
 	public void setup(){
 		UIBar throttle1 = (UIBar) new UIBar(295,515,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
 		UIBar throttle2 = (UIBar) new UIBar(310,515,5,150, "Throttle").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3).setMainColor(Color.orange);
 		UIBar speed1    = (UIBar) new UIBar(270,515,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_1);
 		UIBar speed2    = (UIBar) new UIBar(315,515,25,150, "Speed").setUpdater(DataTypes.DATA_DIGITAL_2);
-		UITextField tf1 = new UITextField(805,45,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		UITextField tf2 = new UITextField(805,75,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
+		UITextField tf1 = new UITextField(805,45,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1);
+		UITextField tf2 = new UITextField(805,75,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS2);
 		UITextField tf3 = new UITextField(805,105,200,25).setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
 		UITextField tf4 = new UITextField(805,135,200,25).setUpdater(DataTypes.DATA_ROBOT_VOLTS);
 		UITextField tf5 = new UITextField(805,165,200,25).setUpdater(DataTypes.DATA_NETWORK_PING);
@@ -148,13 +165,13 @@ public class Dashboard {
 		colors.put(4, Color.green);
 		status.setColors(colors);
 
-		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(5,465,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5,DataTypes.DATA_JOYSTICK_1_AXIS6);
+		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(5,465,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1,DataTypes.DATA_JOYSTICK_1_AXIS2);
 
 		UICamera camera = new UICamera(5,45,395,300, "Camera", "http://10.35.40.20/mjpg/video.mjpg");
 		UICamera camera2 = new UICamera(405,45,395,300, "Camera", "http://10.35.40.21/mjpg/video.mjpg");
 		
 		UIGraph accellerator = (UIGraph) new UIGraph(5,515,250,150, "Accel",200).setUpdater(DataTypes.DATA_DIGITAL_1);
-		UISpeedometer speedometer = (UISpeedometer) new UISpeedometer(375,465,200, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS5);
+		UISpeedometer speedometer = (UISpeedometer) new UISpeedometer(375,465,200, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
 		
 		UIGraph ping  = (UIGraph) new UIGraph(5,410,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
 		UIGraph volts = (UIGraph) new UIGraph(5,350,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
@@ -198,14 +215,17 @@ public class Dashboard {
 		//spd.setValue(75);
 		p.add(new JPanel());
 	}
-	
+	/**
+	 * Called when the Connection state is changed.
+	 * @param Boolean. Connection state;
+	 */
 	public static void setConnected(boolean b){
 		if(b){
 			connectedWindow.setVisible(false);
 		}
 		else{
-			//if(!connectedWindow.isVisible())
-			//connectedWindow.setVisible(true);
+			if(!connectedWindow.isVisible())
+			connectedWindow.setVisible(true);
 		}
 	}
 	

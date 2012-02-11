@@ -45,6 +45,7 @@ public class NetManager extends Thread {
 					time = new Date().getTime() - time;
 					DataManager.put(DataTypes.DATA_NETWORK_PING, time);
 					UpdateManager.updateFull();
+					try{sleep(100);}catch(Exception e){}
 					}catch(Exception e){}
 				}
 			setConnected(false);
