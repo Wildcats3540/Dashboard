@@ -117,4 +117,25 @@ public class UICamera extends BasicUIObject{
 			}
 		}
 	}
+	
+	public BufferedImage getImage(){
+		return (BufferedImage)img;
+	}
+	
+	public BufferedImage getBWImage(){
+		
+		BufferedImage bimg = null;
+        BufferedImage i = (BufferedImage)img;
+
+        //drawing a new image      
+        bimg = new BufferedImage((int)i.getWidth(), (int)i.getHeight(),
+                                               BufferedImage.TYPE_BYTE_BINARY);
+        Graphics2D gg = bimg.createGraphics();
+        gg.drawImage(i, 0, 0, img.getWidth(null), img.getHeight(null), null);
+        
+        BufferedImage o = new BufferedImage((int)i.getWidth(), (int)i.getHeight(),  BufferedImage.TYPE_INT_ARGB);
+        o.getGraphics().drawImage(bimg, 0, 0, img.getWidth(null), img.getHeight(null), null);
+        
+        return o;
+	}
 }

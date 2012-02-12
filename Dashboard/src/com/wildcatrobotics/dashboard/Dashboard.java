@@ -32,6 +32,7 @@ import com.wildcatrobotics.dashboard.objects.UISpeedometer;
 import com.wildcatrobotics.dashboard.objects.UITextField;
 import com.wildcatrobotics.dashboard.sockettest.Ping;
 import com.wildcatrobotics.dashboard.util.NetworkConversionHelper;
+import com.wildcatrobotics.targetServer.util.HoughTransform;
 
 public class Dashboard {
 
@@ -45,6 +46,8 @@ public class Dashboard {
 	JFrame setD = new JFrame();
 	JTextField setIPT = new JTextField();
 	JTextField setPortT = new JTextField();
+	
+	JButton hough = new JButton("Start h");
 	
 	private static JDialog connectedWindow = new JDialog();
 	
@@ -142,6 +145,12 @@ public class Dashboard {
 		}
 
 	
+	
+	
+	UICamera camera = new UICamera(5,45,395,300, "Camera", "http://10.35.40.20/mjpg/video.mjpg");
+	UICamera camera2 = new UICamera(405,45,395,300, "Camera", "http://10.35.40.21/mjpg/video.mjpg");
+	JPanel himg = new JPanel();
+	
 	/**
 	 * This is where all the UI Elements are added and setup
 	 */
@@ -166,18 +175,16 @@ public class Dashboard {
 		status.setColors(colors);
 
 		UI2DAxisPosition axis = (UI2DAxisPosition) new UI2DAxisPosition(5,465,200,200, "Axis").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS1,DataTypes.DATA_JOYSTICK_1_AXIS2);
-
-		UICamera camera = new UICamera(5,45,395,300, "Camera", "http://10.35.40.20/mjpg/video.mjpg");
-		UICamera camera2 = new UICamera(405,45,395,300, "Camera", "http://10.35.40.21/mjpg/video.mjpg");
-		
 		UIGraph accellerator = (UIGraph) new UIGraph(5,515,250,150, "Accel",200).setUpdater(DataTypes.DATA_DIGITAL_1);
 		UISpeedometer speedometer = (UISpeedometer) new UISpeedometer(375,465,200, "Speed").setUpdater(DataTypes.DATA_JOYSTICK_1_AXIS3);
-		
 		UIGraph ping  = (UIGraph) new UIGraph(5,410,100,50, "Ping").setUpdater(DataTypes.DATA_NETWORK_PING);
 		UIGraph volts = (UIGraph) new UIGraph(5,350,100,50, "Volts").setUpdater(DataTypes.DATA_ROBOT_VOLTS);
-
 		UIDial gyro = (UIDial) new UIDial(805,470,100, "Dial").setUpdater(DataTypes.DATA_DIGITAL_13);
-
+		hough.setBounds(800,300,100,30);
+		hough.addActionListener(new houghT());
+		himg.setBounds(800,350,300,200);
+		
+		
 		ping.setMin(0);
 		ping.setMax(100);
 		
@@ -206,10 +213,12 @@ public class Dashboard {
 		p.add(ping);
 		p.add(volts);
 		p.add(axis);
-		p.add(gyro);
+		//p.add(gyro);
 		p.add(status);
 		p.add(camera);
 		p.add(camera2);
+		p.add(hough);
+		p.add(himg);
 		/*LoadingOverlay ov = new LoadingOverlay(0,0,f.getWidth(),f.getHeight());
 		f.add(ov);*/
 		//spd.setValue(75);
@@ -241,4 +250,16 @@ public class Dashboard {
 			setD.dispose();	
 		}	
 	}	
+	class houghT implements ActionListener{
+
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			HoughTransform h = new HoughTransform();
+			h.start(camera2.getBWImage());
+			himg.getGraphics().drawImage(h.getHoughArrayImage(),0,0,300,200,null);
+			
+		}
+		
+	}
 }
