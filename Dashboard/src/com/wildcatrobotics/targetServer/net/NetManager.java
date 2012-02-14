@@ -3,7 +3,11 @@ package com.wildcatrobotics.targetServer.net;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -20,13 +24,13 @@ public class NetManager extends Thread{
 			while(online){
 		         ServerSocket srvr = new ServerSocket(7778);
 		         Socket skt = srvr.accept();
-				 BufferedReader in = new BufferedReader(new InputStreamReader(skt.getInputStream()));
-				 BufferedOutputStream out = new BufferedOutputStream(skt.getOutputStream());
+				 DataInputStream in = new DataInputStream(skt.getInputStream()));
+				 DataOutputStream out = new DataOutputStream(skt.getOutputStream()));
 				 
 				 while(skt.isConnected()){
 					 String input = in.readLine();
 					 if(input.equals("request")){
-						 
+						 out.writeUTF(arg0)
 					 }
 						 
 					 

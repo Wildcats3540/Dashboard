@@ -91,7 +91,7 @@ public class UICamera extends BasicUIObject{
 				try{
 					HttpURLConnection ul= (HttpURLConnection) new URL(ip.getText()).openConnection();
 					jpgin = new MjpegInputStream(ul.getInputStream());
-					try {b = new FileOutputStream(new File("c:\\mov2.mjpeg"));} catch (FileNotFoundException e) {			}
+					try {b = new FileOutputStream(new File("c:\\"+name+".mjpeg"));b.write(jpgin.readUTF().getBytes());System.out.println(jpgin.readUTF());} catch (FileNotFoundException e) {			}
 
 					if(cp.isVisible())
 					cp.setVisible(false);
